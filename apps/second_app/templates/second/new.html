@@ -1,0 +1,12 @@
+<a href="/second/logout">lof off</a>||<a href="/second/">home</a>   
+<form action="create" method="POST">
+    {% csrf_token%}
+    <input type="text" name="title" placeholder="title">
+    <p>start time</p>
+    <input type="date" name="start_time" >
+    <p>fin time</p>
+    <input type="time" name="fin_time">
+    <p></p>
+    <input type='text' name="descrip" placeholder="desciption">
+    <input type="submit" value="create">
+</form>

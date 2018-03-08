@@ -1,0 +1,50 @@
+<h1>dojo activity center</h1>
+<h3>welcome,{{request.session.peep}}</h3>
+<a href="logout">lof off</a>
+<table>
+        <tbody>
+         <tr>
+            <th>activity|</th>
+            <th>date of event|</th>
+            <th>start time of event|</th>
+            <th>event coordinator|</th>
+            <th>number of participants|</th>
+            <th>actions|</th>
+        </tr>  
+        {% for i in all %}  
+        <tr>
+           
+        <td><a href="event/{{i.id}}">|{{i.title}}|</a></td>
+        <td>|{{i.start}}|</td>
+        <td>|{{i.fin}}|</td>
+        <td>|{{i.activity.name}}|</td>
+        <td>|{{i.join.count}}|</td>
+        <td>|<a href='adder/{{i.id}}'>join</a>|</td>
+        {% if request.session.user_id == i.activity.id %}
+        <td>|<a href='delete/{{i.id}}'>delete</a>|</td>
+        {%endif%}
+        </tr>
+        {% endfor %}
+        {% for i in all_join %}  
+        <tr>
+           
+        <td><a href="event/{{i.id}}">|{{i.title}}|</a></td>
+        <td>|{{i.start}}|</td>
+        <td>|{{i.fin}}|</td>
+        <td>|{{i.activity.name}}|</td>
+        <td>|{{i.join.count}}|</td>
+        <td>|<a href='remove/{{i.id}}'>remove</a>|</td>
+        {% if request.session.user_id == i.activity.id %}
+        <td>|<a href='delete/{{i.id}}'>delete</a>|</td>
+        {%endif%}
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        <p>other users travel plans</p>
+        
+        
+        
+        
+        <table>
+<a href='add'>add new activity</a>

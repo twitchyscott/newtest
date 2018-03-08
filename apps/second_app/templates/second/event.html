@@ -1,0 +1,9 @@
+<h1>{{a_id.title}}</h1><a href="/second/logout">lof off</a>||<a href="/second/">home</a>   
+<p><b>description:</b></p>{{a_id.description}}
+<p><b>event coordinator:</b></p>{{a_id.activity.name}}
+
+<p><b>participants:</b></p>
+{% for i in a_id.join.all%}
+{{i.name}},
+
+{% endfor %}

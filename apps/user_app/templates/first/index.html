@@ -1,0 +1,26 @@
+<fieldset>
+    <h1>first</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="register" method="POST">
+        {%csrf_token%}
+        <input placeholder="name" type="text" name='name'>
+        <input placeholder="username" type="text" name="username">
+        <input placeholder="email" type='email' name="email">
+        <input placeholder="password" type="text" name="password">
+        <input placeholder="re-password" type="text" name="re-password">
+        <input placeholder="name" type="submit" value="register">    
+    </form>
+    <h1>login</h1>
+    <form action="login" method="POST">
+        {%csrf_token%}
+        <input placeholder="username" type="text" name="username">
+        <input placeholder="password" type="password" name="password">
+        <input type="submit" value="login">
+    </form>
+    </fieldset>
